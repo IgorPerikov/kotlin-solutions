@@ -1,4 +1,4 @@
-package _0
+package s0
 
 class Solution48 {
     fun rotate(matrix: Array<IntArray>): Unit {

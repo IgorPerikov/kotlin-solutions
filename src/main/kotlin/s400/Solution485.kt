@@ -1,4 +1,4 @@
-package _400
+package s400
 
 class Solution485 {
     fun findMaxConsecutiveOnes(nums: IntArray): Int {
