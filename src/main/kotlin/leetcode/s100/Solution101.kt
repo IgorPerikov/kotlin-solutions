@@ -1,6 +1,6 @@
-package s100
+package leetcode.s100
 
-import other.TreeNode
+import leetcode.other.TreeNode
 import java.util.*
 
 class Solution101IterativeDfs {

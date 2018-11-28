@@ -1,3 +1,3 @@
 kotlin-solutions
 ---
-repo for problem solutions, especially from leetcode
+repo for different puzzle solutions, such as leetcode, advent of code, cryptopals

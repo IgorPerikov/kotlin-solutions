@@ -1,4 +1,4 @@
-package s0
+package leetcode.s0
 
 class Solution48 {
     fun rotate(matrix: Array<IntArray>): Unit {

@@ -1,4 +1,4 @@
-package s0
+package leetcode.s0
 
 class Solution46 {
     fun permute(nums: IntArray): List<List<Int>> {

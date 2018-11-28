@@ -1,4 +1,4 @@
-package s100
+package leetcode.s100
 
 import java.lang.Integer.max
 

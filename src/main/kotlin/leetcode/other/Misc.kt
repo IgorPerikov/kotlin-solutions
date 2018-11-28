@@ -1,4 +1,4 @@
-package other
+package leetcode.other
 
 class TreeNode(var `val`: Int = 0) {
     var left: TreeNode? = null

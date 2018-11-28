@@ -1,4 +1,4 @@
-package s400
+package leetcode.s400
 
 class Solution485 {
     fun findMaxConsecutiveOnes(nums: IntArray): Int {

@@ -1,4 +1,4 @@
-package s200
+package leetcode.s200
 
 class Solution268 {
     fun missingNumber(nums: IntArray): Int {
