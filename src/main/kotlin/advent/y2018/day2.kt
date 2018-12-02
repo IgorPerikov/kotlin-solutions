@@ -1,10 +1,12 @@
 package advent.y2018
 
+import advent.readInput
+
 /**
  * https://adventofcode.com/2018/day/2
  */
 fun main(args: Array<String>) {
-    val ids = readInput(2)
+    val ids = readInput(2, 2018)
     calculateChecksum(ids).also { println(it) }
     commonCharactersOfBoxes(ids).also { println(it) }
 }

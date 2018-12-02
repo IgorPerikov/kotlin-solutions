@@ -8,3 +8,4 @@ target
 build
 test-output
 .gradletasknamecache
+out
