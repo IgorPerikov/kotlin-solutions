@@ -2,6 +2,7 @@ package cryptopals
 
 import cryptopals.misc.HexString
 import cryptopals.set1.convertHexToBase64
+import cryptopals.set1.fixedXor
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -20,6 +21,17 @@ class Set1Suite {
         assertEquals(
             base64String.prettyPrinted,
             "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
+        )
+    }
+
+    @Test
+    fun `Fixed xor`() {
+        assertEquals(
+            fixedXor(
+                HexString.fromPretty("1c0111001f010100061a024b53535009181c"),
+                HexString.fromPretty("686974207468652062756c6c277320657965")
+            ),
+            HexString.fromPretty("746865206b696420646f6e277420706c6179")
         )
     }
 }
