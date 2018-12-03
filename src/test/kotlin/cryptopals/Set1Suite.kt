@@ -2,6 +2,7 @@ package cryptopals
 
 import cryptopals.misc.HexString
 import cryptopals.set1.convertHexToBase64
+import cryptopals.set1.decipherSingleByteXor
 import cryptopals.set1.fixedXor
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -33,5 +34,11 @@ class Set1Suite {
             ),
             HexString.fromPretty("746865206b696420646f6e277420706c6179")
         )
+    }
+
+    @Test
+    fun `Single-byte XOR cipher`() {
+        val message = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
+        println(decipherSingleByteXor(message))
     }
 }
