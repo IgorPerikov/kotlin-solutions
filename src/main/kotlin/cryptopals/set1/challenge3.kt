@@ -16,17 +16,27 @@ fun singleByteXor(input: HexString, key: Byte): HexString {
 }
 
 fun decipherSingleByteXor(encryptedMessage: HexString): String {
-    val charFrequenciesMap = buildCharFrequenciesMap()
-    return (Byte.MIN_VALUE..Byte.MAX_VALUE)
-        .asSequence()
+    return sortXorDecryptedMessagesByScore((Byte.MIN_VALUE..Byte.MAX_VALUE)
         .map {
             singleByteXor(encryptedMessage, it.toByte()).prettyPrinted
-        }
-        .sortedByDescending { calculateScore(it, charFrequenciesMap) }
+        })
         .first()
 }
 
+fun decipherSingleByteXor(encryptedMessage: HexString, take: Int): List<String> {
+    return sortXorDecryptedMessagesByScore((Byte.MIN_VALUE..Byte.MAX_VALUE)
+        .map {
+            singleByteXor(encryptedMessage, it.toByte()).prettyPrinted
+        })
+        .take(take)
+}
+
 fun decipherSingleByteXor(encryptedMessage: String) = decipherSingleByteXor(HexString.fromPretty(encryptedMessage))
+
+fun sortXorDecryptedMessagesByScore(decryptedMessages: List<String>): List<String> {
+    val charFrequenciesMap = buildCharFrequenciesMap()
+    return decryptedMessages.sortedByDescending { calculateScore(it, charFrequenciesMap) }
+}
 
 private fun calculateScore(input: String, frequencies: Map<Char, Double>): Double {
     var score = 1.0

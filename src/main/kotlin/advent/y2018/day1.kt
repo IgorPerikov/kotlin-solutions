@@ -1,6 +1,6 @@
 package advent.y2018
 
-import advent.readInput
+import misc.readAdventInput
 
 /**
  * https://adventofcode.com/2018/day/1
@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
     partB().also { println(it) }
 }
 
-private fun readAsInts(): List<Int> = readInput(1, 2018).map(Integer::valueOf)
+private fun readAsInts(): List<Int> = readAdventInput(1, 2018).map(Integer::valueOf)
 
 private fun partA() = readAsInts().sum()
 

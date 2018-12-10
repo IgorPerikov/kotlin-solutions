@@ -1,6 +1,6 @@
 package advent.y2018
 
-import advent.readInput
+import misc.readAdventInput
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -58,7 +58,7 @@ private fun whoSleepTheMostAtAnyMinute(guardToIntervalsMap: Map<GuardId, List<In
 }
 
 private fun buildGuardToIntervalsMap(): Map<GuardId, List<Interval>> {
-    val guardEvents: List<GuardEvent> = readInput(4, 2018)
+    val guardEvents: List<GuardEvent> = readAdventInput(4, 2018)
         .map(::parseEvent)
         .sortedBy { it.eventDateTime }
     val guardToIntervalsMap = mutableMapOf<GuardId, MutableList<Interval>>()

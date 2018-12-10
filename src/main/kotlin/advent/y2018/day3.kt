@@ -1,6 +1,6 @@
 package advent.y2018
 
-import advent.readInput
+import misc.readAdventInput
 
 /**
  * https://adventofcode.com/2018/day/3
@@ -55,7 +55,7 @@ private fun buildCollisionsMap(claims: List<Claim>): Array<Array<Int>> {
     return fabric
 }
 
-private fun readClaims() = readInput(3, 2018).map(::parseClaim)
+private fun readClaims() = readAdventInput(3, 2018).map(::parseClaim)
 
 private fun parseClaim(claim: String): Claim {
     val (id, claimWithoutId) = claim.substringAfter("#").split(" @ ")
