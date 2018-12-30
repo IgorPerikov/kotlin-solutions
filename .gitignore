@@ -9,3 +9,4 @@ build
 test-output
 .gradletasknamecache
 out
+.gradle
