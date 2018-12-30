@@ -1,6 +1,7 @@
 package advent.y2018
 
 import misc.readAdventInput
+import java.util.*
 
 fun main(args: Array<String>) {
     val polymersChain = readAdventInput(5, 2018)[0]
@@ -18,7 +19,10 @@ private fun leastPossiblePolymerChainAfterRemovingAny(polymers: String): Int {
 }
 
 private fun remainUnitsAfterAllReactions(polymers: String): Int {
-    val polymerExistence = IntArray(polymers.length) { 1 }
+    val indexesOfRemainedPolymers: TreeSet<Int> = TreeSet()
+    for (i in 0 until polymers.length) {
+        indexesOfRemainedPolymers.add(i)
+    }
     var left = 0
     var right = 1
     var reactions = 0
@@ -28,9 +32,9 @@ private fun remainUnitsAfterAllReactions(polymers: String): Int {
         }
         if (shouldReact(polymers[left], polymers[right])) {
             reactions++
-            polymerExistence[left] = 0
-            polymerExistence[right] = 0
-            val closestOneToTheLeft = getClosestOneToTheLeft(left, polymerExistence)
+            indexesOfRemainedPolymers.remove(left)
+            indexesOfRemainedPolymers.remove(right)
+            val closestOneToTheLeft = getClosestOneToTheLeft(left, indexesOfRemainedPolymers)
             if (closestOneToTheLeft == null) {
                 left = right + 1
                 right += 2
@@ -46,14 +50,8 @@ private fun remainUnitsAfterAllReactions(polymers: String): Int {
     return polymers.length - reactions * 2
 }
 
-// TODO: calling this function each time is suboptimal
-private fun getClosestOneToTheLeft(left: Int, polymerExistence: IntArray): Int? {
-    for (index in left - 1 downTo 0) {
-        if (polymerExistence[index] == 1) {
-            return index
-        }
-    }
-    return null
+private fun getClosestOneToTheLeft(left: Int, indexesOfRemainedPolymers: TreeSet<Int>): Int? {
+    return indexesOfRemainedPolymers.floor(left - 1)
 }
 
 private fun shouldReact(a: Char, b: Char): Boolean {
